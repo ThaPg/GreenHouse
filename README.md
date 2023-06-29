@@ -1,5 +1,5 @@
 # GreenHouse
-A repository about greenhouse managment
+A repository about greenhouse managment.
 
 The full stack application is written in python using Django Rest Framework.
 
