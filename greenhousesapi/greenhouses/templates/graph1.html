@@ -1,0 +1,150 @@
+{% extends "base_generic.html" %}
+
+{% block title %} <title>Home</title> {% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-30">
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                <li>
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi bi-thermometer"></i> <span class="ms-1 d-none d-sm-inline">Θερμοκρασία</span>
+                    </a>
+                    <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-up"></i>
+                                Εξωτερική</a>
+                        </li>
+                        <li>
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-in-down"></i>
+                                Εσωτερική</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi bi-moisture"></i> <span class="ms-1 d-none d-sm-inline">Υγρασία</span></a>
+                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-up"></i> Εξωτερική</a>
+                        </li>
+                        <li>
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-in-down"></i>
+                                Εσωτερική</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi bi-sun"></i> <span class="ms-1 d-none d-sm-inline">Ηλιακή Ακτινοβολία</span>
+                    </a>
+                    <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-up"></i> Εξωτερική</a>
+                        </li>
+                        <li>
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-box-arrow-right"></i> Κάλυμμα</a>
+                        </li>
+                        <li>
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-flower1"> </i>Επίπεδο
+                                φυτών</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                        <i class="fs-4 bi bi-water"></i> <span class="ms-1 d-none d-sm-inline">Στάθμη Νερού</span></a>
+                    <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+                        <li class="w-100">
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-1-square"></i> Δεξαμενή 1</a>
+                        </li>
+                        <li>
+                            <a href="../graph1" class="nav-link px-0"><i class="bi bi-2-square"></i> Δεξαμενή 2</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <hr>
+            <div class="dropdown pb-4">
+                <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle"
+                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                    <span class="d-none d-sm-inline mx-4">{{ user.username }}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center col-auto">
+        <h1></h1>
+        <canvas id="myChart" style="height:80vh; width:80vw"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    const labels = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
+    // create random Data
+    const helpData1 = labels.map(_ => Math.random() * 40);
+    const helpData2 = labels.map(_ => Math.random() * 40);
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Θάλαμος 1',
+                data: helpData1,
+                borderColor: '#ff0000',
+                backgroundColor: '#ff000088',
+                order: 0
+            },
+            {
+                label: 'Θάλαμος 2',
+                data: helpData2,
+                borderColor: '#0000ff',
+                backgroundColor: '#0000ff88',
+                type: 'line',
+                order: 1
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            // maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+            }
+        },
+    };
+
+    new Chart(
+        ctx,
+        config
+    );
+</script>
+{% else %}
+<div class="text-center">
+    <h2 class="text-center font-weight-bold">You are not logged in</h2>
+
+    <a class="fs-4" href="{% url 'login' %}">Log In</a>
+</div>
+{% endif %}
+{% endblock %}

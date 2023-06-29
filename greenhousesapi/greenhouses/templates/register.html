@@ -1,0 +1,161 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!--Register-->
+<section class="height:auto">
+    <div class="container-fluid py-2">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="../../static/images/draw2.webp" class="img-fluid mx-auto" alt="Let's login image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 border-start">
+                <div class="content-section">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-group text-center">
+                            <label for="text">Χρήστης</label>
+                            <input type="text" class="form-control" id="username" placeholder="π.χ. User1"
+                                name="username" {{user_form.username.as_p}}>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <label for="text">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="π.χ. user1@user.us"
+                                name="email" {{user_form.email.as_p}}>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <label for="text">Κωδικός Πρόσβασης</label>
+                            <input type="password" class="form-control" id="password1" name="password1"
+                                {{user_form.password1.as_p}}>
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="text">Επαλύθευση</label>
+                            <input type="password" class="form-control" id="password2" name="password2"
+                                {{user_form.password2.as_p}}>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <label for="text">Όνομα Χρήστη</label>
+                            <input type="text" class="form-control" id="first_name" placeholder="π.χ. User1"
+                                name="first_name" {{user_form.first_name.as_p}}>
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="text">Επώνυμο Χρήστη</label>
+                            <input type="text" class="form-control" id="last_name" placeholder="π.χ. User1"
+                                name="last_name" {{user_form.last_name.as_p}}>
+                        </div>
+
+                        <!-- <div class="form-group text-center">
+                            <label for="text">Κωδικός Πρόσβασης</label>
+
+                            <div class="input-group mb-2">
+
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Κωδικός Πρόσβασης" aria-hidden="true" name="password">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-eye-fill" id="togglePassword" style="cursor: pointer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div multiline class="form-group text-center">
+                            <label for="text">Περιφέρεια</label>
+                            <select class="form-select text-center" id="region" placeholder="Enter title" name="region">
+                                <option {{profile_form.region.as_table }}></option>
+                            </select>
+                        </div> -->
+
+                        <!-- <div multiline class="form-group text-center">
+                            <label for="text">Περιφέρεια</label>
+                            <ul class="form-group" id="region" name="region">
+                                {{profile_form.region }}</ul>
+                        </div> -->
+
+                        <!-- Subjects: <select name="subject" id="subject">
+                            <option value="" selected="selected">Select subject</option>
+                        </select>
+                        <br><br>
+                        Topics: <select name="topic" id="topic">
+                            <option value="" selected="selected">Please select subject first</option>
+                        </select>
+                        <br><br> -->
+                        <!-- Chapters: <select name="chapter" id="chapter">
+                            <option value="" selected="selected">Please select topic first</option>
+                        </select>
+                        <br><br>
+                        <input type="submit" value="Submit"> -->
+
+                        <div class="form-group text-center border-top border-3 mt-3">
+                            <label for="text">Περιφέρεια</label>
+                            <select class="form-select mt-1" id="region" name="region">
+                                <option value="" selected="selected">Επιλέξτε Περιφέρια</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group text-center mt-3">
+                            <label for="text">Νομός</label>
+                            <select class="form-select mt-1" id="prefecture" name="prefecture">
+                                <option value="" selected="selected">Επιλέξτε Νομό </option>
+                            </select>
+                        </div>
+                        <!-- /////////////////////////////////////////////////////////////////////////// -->
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Τοποθεσία</label>
+                            <input type="text" class="form-control mt-1" id="location"
+                                placeholder="Εισάγετε τοποθεσία θεμοκηπίου" name="location">
+                        </div>
+
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Όνομα</label>
+                            <input type="text" class="form-control text-center" id="first_name"
+                                placeholder="Όνομα Παραγωγού" name="first_name">
+                        </div>
+
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Επώνυμο</label>
+                            <input type="text" class="form-control text-center" id="last_name"
+                                placeholder="Επώνυμο Παραγωγού" name="last_name">
+                        </div>
+
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Email</label>
+                            <input type="email" class="form-control text-center" id="email"
+                                placeholder="Διεύθυνση επικοινωνίας" name="email">
+                        </div>
+                        <!-- /////////////////////////////////////////////////////////////////////////// -->
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Αριθμός θερμοκηπίων</label>
+                            <select class="form-select text-center mt-1" id="greenhouse_number"
+                                name="greenhouse_number">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Καλλιέργεια</label>
+                            <select class="form-select text-center mt-1" id="cultivation" name="cultivation">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+                        <!-- /////////////////////////////////////////////////////////////////////////// -->
+                        <div class="form-group text-center  mt-3">
+                            <label for="text">Περιγραφή</label>
+                            <input type="text" class="form-control text-center" id="description"
+                                placeholder="Περιγραφή Καλλιέργειας" name="description">
+                        </div>
+
+                        <div class="text-center fs-5 mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

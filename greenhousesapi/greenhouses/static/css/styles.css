@@ -1,0 +1,30 @@
+#section1 {
+    background: url("../images/thermokipia.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 86vh;
+    /* 100% of viewport height */
+    /* margin: 0 auto; */
+    position: sticky;
+
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}

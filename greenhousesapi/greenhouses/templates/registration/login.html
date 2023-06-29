@@ -1,0 +1,73 @@
+{% extends "base_generic.html" %}
+
+[{% block content %}
+<section class="height:auto">
+    <div class="container-fluid py-2">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="../../static/images/draw2.webp" class="img-fluid mx-auto" alt="Let's login image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 border-start">
+                <div class="content-section">
+                    <form method="POST">
+                        <div class="text-center">
+                            <p class="lead fw-normal mb-1">Sign in with</p>
+                            <button type="button" class="btn btn-primary btn-floating mx-2">
+                                <i class="bi bi-facebook"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-2">
+                                <i class="bi bi-twitter"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-2">
+                                <i class="bi bi-linkedin"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-floating mx-2">
+                                <i class="bi bi-github"></i>
+                            </button>
+                        </div>
+
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                        </div>
+
+                        {% csrf_token %}
+                        <div class="form-outline text-center mb-4">
+                            <label for="text">Όνομα Χρήστη</label>
+                            <input type="text" class="form-control" id="username" placeholder="π.χ. User1"
+                                name="username">
+                        </div>
+
+                        <div class="form-outline text-center mb-4">
+                            <label for="text">Κωδικός Πρόσβασης</label>
+
+                            <div class="input-group mb-2">
+
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Κωδικός Πρόσβασης" aria-hidden="true" name="password">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="bi bi-eye-fill" id="togglePassword" style="cursor: pointer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center fs-5 mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
+                                <a href="{% url 'register' %}" class="link-danger">Register</a>
+                            </p>
+                            <small class="text-muted">
+                                <a href="{% url 'password_reset' %}">Forgot password?</a>
+                            </small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock %}

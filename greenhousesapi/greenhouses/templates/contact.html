@@ -1,0 +1,81 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-2 bg-light rounded">
+            <h1 class="text-center font-weight-bold text-primary">Contact Us</h1>
+            <hr class="bg-light">
+            <h5 class="text-center text-success"></h5>
+            {% csrf_token %}
+
+            <form method="post" class="p-2 text-center">
+                <!-- {% csrf_token %} -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    </div>
+                    <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                    </div>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-at"></i></span>
+                    </div>
+                    <input type="text" name="subject" class="form-control" placeholder="Enter subject" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="bi bi-chat-right-fill"></i></span>
+                    </div>
+                    <textarea name="msg" id="msg" class="form-control" placeholder="Write your message" cols="30"
+                        rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="button" name="submit" id="submit" class="btn btn-primary btn-block" value="Send"
+                        data-bs-toggle="modal" data-bs-target="#myModal">
+                </div>
+                <!-- Trigger the modal with a button -->
+
+                <!-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Open modal
+                </button> -->
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content  modal-dialog-centered">
+
+            <!-- Modal Header -->
+            <div class="modal-header modal-dialog-centered">
+                <h4 class="modal-title ">Thanks a lot!</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body ">
+                Πήραμε το αίτημά σας και θα σας απαντήσουμε το συντομότερο δυνατό. <br>
+                Σας ευχαριστούμε πολύ. <br><br>
+
+                Greenhouses S.A.
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
