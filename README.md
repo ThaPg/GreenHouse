@@ -3,9 +3,21 @@ A repository about greenhouse managment.
 
 The full stack application is written in python using Django Rest Framework.
 
-The application is a final exam for Coding Factory, AUEB, Athens, Greece.
+The application is a final exam for [Coding Factory](https://codingfactory.aueb.gr/), AUEB, Athens, Greece.
 
 Mostly written in Greek with some names in English.
+
+---
+
+Ένα repository για διαχείριση του θερμοκηπίου.
+
+Η πλήρης εφαρμογή είναι γραμμένη σε python χρησιμοποιώντας το Django Rest Framework.
+
+Είναι η τελική εξέταση για [Coding Factory](https://codingfactory.aueb.gr/), ΟΠΑ, Αθήνα.
+
+Κυρίως γραμμένο στα ελληνικά με μερικά ονόματα στα αγγλικά.
+
+---
 
 # Execution Steps || Βήματα εκτέλεσης:
 ### 1) Create Virtual Environment ||Δημιουργία virtual environment
