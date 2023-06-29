@@ -1,5 +1,5 @@
 # GreenHouse
-A repository about greenhouse managment.
+A repository about greenhouse management.
 
 The full stack application is written in python using Django Rest Framework.
 
@@ -11,9 +11,9 @@ Mostly written in Greek with some names in English.
 
 Ένα repository για διαχείριση του θερμοκηπίου.
 
-Η πλήρης εφαρμογή είναι γραμμένη σε python χρησιμοποιώντας το Django Rest Framework.
+Η εφαρμογή είναι γραμμένη σε python χρησιμοποιώντας το Django Rest Framework.
 
-Είναι η τελική εξέταση για [Coding Factory](https://codingfactory.aueb.gr/), ΟΠΑ, Αθήνα.
+Είναι η τελική εξέταση για το [Coding Factory](https://codingfactory.aueb.gr/), ΟΠΑ, Αθήνα.
 
 Κυρίως γραμμένο στα ελληνικά με μερικά ονόματα στα αγγλικά.
 
