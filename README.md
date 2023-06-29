@@ -30,7 +30,7 @@ Mostly written in Greek with some names in English.
 
 ### 3) Install requirement packages || Εγκατάσταση των απαραίτητων πακέτων
 
-`pip intall requirements.txt`
+`pip install requirements.txt`
 
 ### 4) Make migrations || Δημιουργία migrations
 
